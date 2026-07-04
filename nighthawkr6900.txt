@@ -1,6 +1,6 @@
 IOT HACKING netgear nighthawk AC1900 R6900:
 
-
+I found this device on facebook marketplace for $5 and thought it would be a fun project.
 I achieved root shell via UART port with a USB TO TTY serial adapter.
 I tested the prongs with a multi meter to find the grd, tx and rx.
 I connected the GRD and switched the RX and TX wires with the ones on my controller
