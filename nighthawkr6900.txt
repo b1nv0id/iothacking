@@ -17,6 +17,7 @@ Linux R6900 2.6.36.4brcmarm+ #30 SMP PREEMPT Sun Dec 18 17:27:23 CST 2016 armv7l
 # id
 uid=0 gid=0(root)
 
+after obtaining a root shell, I used the broadcom nvram utility to query the router's persistent configuration database. netgear stores system settings such as the wireless SSID, WPA pre-shared key, and web administration credentials as key-value pairs in nvram, allowing them to be retrieved directly by the nvram command
 
 this got the wifi username:
 
