@@ -1,4 +1,4 @@
-IOT HACKING netgear nighthawk:
+IOT HACKING netgear nighthawk AC1900 R6900:
 
 
 I achieved root shell via UART port with a USB TO TTY controller.
