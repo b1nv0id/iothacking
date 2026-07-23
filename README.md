@@ -7,4 +7,5 @@ router_recon.sh is a bash-based router reconnaissance tool that collects system-
 drop it in the bash shell, then:
 
 chmod +x /tmp/router_recon.sh
-/tmp/router_recon.sh
+
+./tmp/router_recon.sh
