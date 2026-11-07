@@ -50,15 +50,15 @@ Linux Archer_A20 4.1.27 #1 SMP PREEMPT Wed Oct 23 07:46:12 EDT 2019 aarch64 GNU/
 root@Archer_A20:/# 
 root@Archer_A20:/# nvram show | grep -i ssid <------ scan the nvram mem for ssid
 wl0.1_ssid=TP-Link_Guest_19F9_5G_2
-wl0_hessid=40:6F:9A:00:11:22
+wl0_hessid=40:6F:2A:00:11:22
 wl0_osu_ssid=OSU
 wl0_ssid=BagEnd                              <------- ssid
 wl1.1_ssid=TP-Link_Guest_19F9
-wl1_hessid=40:6F:9A:00:11:22
+wl1_hessid=40:6F:2A:00:11:22
 wl1_osu_ssid=OSU
 wl1_ssid=BagEnd
 wl2.1_ssid=TP-Link_Guest_19F9_5G_1
-wl2_hessid=40:6F:9A:00:11:22
+wl2_hessid=40:6F:2A:00:11:22
 wl2_osu_ssid=OSU
 wl2_ssid=BagEnd
 size: 43319 bytes (22217 left)
