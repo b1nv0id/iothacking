@@ -7,6 +7,7 @@ because there was no prongs where the uart interface is, where on the nighthawk 
 i used a multimeter and set it to "200". i touched the heat sink with the neg for the ground and i tested the uart pins with the red.
 i found where the ground was, and figured out the tx and rx by trial and error really. you can see in the multimeter where data is constantly
 flowing, and one where it is not. one is rx and the other is tx. 
+** make sure u do not connect to the vcc hole! **
 
 the ground, tx and rx must be secure. this was a major issue i was having a problem with. putting the wires there and trying to tape them was not working.
 i tried to use aligator clamps, and then again, i couldnt get anything to load, only gibberish text because the wires were not secure.
