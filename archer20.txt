@@ -17,7 +17,7 @@ with the wires in place and the toothpicks solid, i opened a terminal and typed 
 
 sudo picocom -b 115200 /dev/ttyUSB0
 
-... i saw text scroll across the screen that loaded the kernel and all the modules and dropped me into a root shell...and i dont care what anyone says, it was sweet...
+... i saw text scroll across the screen that booted into a root shell...and i dont care what anyone says, it was sweet...
 
 
 BusyBox v1.19.4 (2019-10-23 08:31:17 EDT) built-in shell (ash)
