@@ -1,0 +1,90 @@
+tp-link ac4000 archer a20 root write up:
+
+this router was aquired on fb marketplace for $5. I used a usb to tty serial adapter to boot into a root shell on this device.
+this was my second time getting a root shell on a router via uart port, and this one was particularly tricky for me
+because there was no prongs where the uart interface is, where on the nighthawk i got there is.
+
+i used a multimeter and set it to "200". i touched the heat sink with the neg for the ground and i tested the uart pins with the red.
+i found where the ground was, and figured out the tx and rx by trial and error really. you can see in the multimeter where data is constantly
+flowing, and one where it is not. one is rx and the other is tx. 
+
+the ground, tx and rx must be secure. this was a major issue i was having a problem with. putting the wires there and trying to tape them was not working.
+i tried to use aligator clamps, and then again, i couldnt get anything to load, only gibberish text because the wires were not secure.
+i found a trick, toothpicks! once i was able to push them into the holes with the wire, they were in there good like a soldered connection.. 
+
+
+with the wires in place and the toothpicks solid, i opened a terminal and typed this;
+
+sudo picocom -b 115200 /dev/ttyUSB0
+
+... i saw text scroll across the screen that loaded the kernel and all the modules and dropped me into a root shell...and i dont care what anyone says, it was sweet...
+
+
+BusyBox v1.19.4 (2019-10-23 08:31:17 EDT) built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+     MM           NM                    MMMMMMM          M       M
+   $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+  MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+  MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+    MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+     MMMM          M                    MMMMMMM        M       M
+       M
+ ---------------------------------------------------------------
+   For those about to rock... (Attitude Adjustment, unknown)
+ ---------------------------------------------------------------
+root@Archer_A20:/# 
+root@Archer_A20:/# id
+uid=0(root) gid=0(root)
+root@Archer_A20:/# uname -a
+Linux Archer_A20 4.1.27 #1 SMP PREEMPT Wed Oct 23 07:46:12 EDT 2019 aarch64 GNU/Linux
+root@Archer_A20:/# 
+root@Archer_A20:/# nvram show | grep -i ssid <------ scan the nvram mem for ssid
+wl0.1_ssid=TP-Link_Guest_19F9_5G_2
+wl0_hessid=50:6F:9A:00:11:22
+wl0_osu_ssid=OSU
+wl0_ssid=BagEnd                              <------- ssid
+wl1.1_ssid=TP-Link_Guest_19F9
+wl1_hessid=50:6F:9A:00:11:22
+wl1_osu_ssid=OSU
+wl1_ssid=BagEnd
+wl2.1_ssid=TP-Link_Guest_19F9_5G_1
+wl2_hessid=50:6F:9A:00:11:22
+wl2_osu_ssid=OSU
+wl2_ssid=BagEnd
+size: 43319 bytes (22217 left)
+wl_ssid=TP-LINK
+wps_random_ssid_prefix=TP-LINK_
+root@Archer_A20:/# 
+root@Archer_A20:/# 
+root@Archer_A20:/# nvram show | grep -i wpa   <------ scan the nvram for wifi password
+size: 43319 bytes (22217 left)
+wl0_wpa_gtk_rekey=0
+wl0_wpa_psk=ThereAndBackAgain                 <------ we got the password here.
+wl1_wpa_gtk_rekey=0
+wl1_wpa_psk=ThereAndBackAgain
+wl2_wpa_gtk_rekey=0
+wl2_wpa_psk=ThereAndBackAgain
+wl_wpa_gtk_rekey=0
+wl_wpa_psk=
+root@Archer_A20:/# 
+root@Archer_A20:/# 
+root@Archer_A20:/# 
+
+
+I scanned the local wifi networks and it showed "BagEnd"
+I entered the password ThereAndBackAgain and it successfully connected.
+
+
+next I used router_recon.sh to map out the device and then extracted 
+the bins for further inspection.
+
+thanks for reading, b1nv0id
