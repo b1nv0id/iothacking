@@ -68,11 +68,11 @@ root@Archer_A20:/#
 root@Archer_A20:/# nvram show | grep -i wpa   <------ scan the nvram for wifi password
 size: 43319 bytes (22217 left)
 wl0_wpa_gtk_rekey=0
-wl0_wpa_psk=ThereAndBackAgain                 <------ we got the password here.
+wl0_wpa_psk=ForeverAndADay                 <------ we got the password here.
 wl1_wpa_gtk_rekey=0
-wl1_wpa_psk=ThereAndBackAgain
+wl1_wpa_psk=ForeverAndADay
 wl2_wpa_gtk_rekey=0
-wl2_wpa_psk=ThereAndBackAgain
+wl2_wpa_psk=ForeverAndADay
 wl_wpa_gtk_rekey=0
 wl_wpa_psk=
 root@Archer_A20:/# 
@@ -81,7 +81,7 @@ root@Archer_A20:/#
 
 
 I scanned the local wifi networks and it showed "BagEnd"
-I entered the password ThereAndBackAgain and it successfully connected.
+I entered the password ForeverAndADay and it successfully connected.
 
 
 next I used router_recon.sh to map out the device and then extracted 
