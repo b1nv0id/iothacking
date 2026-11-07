@@ -1,4 +1,4 @@
-tp-link ac4000 archer a20 root write up:
+how to get a root shell from tp-link ac4000 archer a20:
 
 this router was aquired on fb marketplace for $5. I used a usb to tty serial adapter to boot into a root shell on this device.
 this was my second time getting a root shell on a router via uart port, and this one was particularly tricky for me
