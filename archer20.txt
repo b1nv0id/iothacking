@@ -3,11 +3,10 @@ how to get a root shell from tp-link ac4000 archer a20:
 this router was aquired on fb marketplace for $5. I used a usb to tty serial adapter (CP2102) to boot into a root shell on this device..this was my second time getting a root shell on a router via uart port, and this one was particularly tricky for me
 because there was no prongs where the uart interface is, where on the nighthawk i got there is.
 
-i unscrewed and took the plastic shroud off the router and located the 4 holes where the UART port is.
+i flipped the router over and unscrewed it, i took the plastic shroud off the router and looked at the deviced until i located the 4 copper holes where the UART port is.
 
-i used a multimeter and set it to "200". i touched the heat sink with the neg for the ground and i tested the uart pins with the red.
-i found where the ground was, and figured out the tx and rx by trial and error really. you can see in the multimeter where data is constantly
-flowing, and one where it is not. one is rx and the other is tx. 
+i used a multimeter and set it to "200". i touched the heat sink with the neg for the ground and i tested the each pin with the red.
+i found where the ground was, and figured out the tx and rx by trial and error really. you can see in the multimeter when testing the pins where data is constantly flowing, and where it is not. one is rx and the other is tx. whatever we have on our host we want to switch. for example the rx on the host is switched to tx on the router and same with the tx wire on the router is switched with the rx going to the host.
 ** make sure u do not connect to the vcc hole! **
 
 the ground, tx and rx must be secure. this was a major issue i was having a problem with. putting the wires there and trying to tape them was not working.
