@@ -1,5 +1,5 @@
 # * Exploit Title:  archv0id.py TP-Link AC4000 Archer A20 - Unauthenticated Remote Command Injection (RCE)
-# * Exploit Author: b1nv0id
+# * Exploit Author: b1nv0id (Reid Downing)
 # * Vendor:         TP-Link
 # * CVE:            CVE-2023-1389
 # * Hardware:       Archer A20 (EOL)
